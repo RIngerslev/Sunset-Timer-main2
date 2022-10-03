@@ -9,43 +9,53 @@ function toggleMenu(){
 function changeColor(button){
     button.style.backgroundColor = 'green';
     button.style.color = 'white';
-}
-var btn = event.target
-function countdownTimer(btnclicked)
-  // variable to store count
-  var remainingTime = 180;
+};
 
-  // variable to store time interval
-  var timer;
+function toHoursAndMinutes(remainingTime){
+  let minutes = remainingTime % 60;
+  let hours = Math.floor(remainingTime / 60);
 
-  // Variable to track whether timer is running or not
-  var isStopped = true;
+  return hours + ':' + minutes;
+};
 
-  // Function to start Timer
-  const startTimer = () => {
-    if (isStopped) {
-      isStopped = false;
-      countContainer.innerHTML = toHoursAndMinutes(remainingTime);
-      alert(countContainer + remainingTime);
-      timer = setInterval(renderTime, 60000);
-    }
-  };
+// variable to store count
+var remainingTime = 180;
+
+// variable to store time interval
+var timer;
+
+// Variable to track whether timer is running or not
+var isStopped = true;
+
+//Button Element
+
+
+// Function to start Timer
+const startTimer = (countContainer) => {
+  if (isStopped) {
+    isStopped = false;
+    countContainer.innerHTML = toHoursAndMinutes(remainingTime);
+    alert(countContainer + remainingTime);
+    timer = setInterval(renderTime, 60000);
+  }
+};
+
 
   // Function to stop Timer
-  const stopTimer = () => {
-    isStopped = true;
-    if (timer) {
-      clearInterval(timer);
-    }
-  };
+const stopTimer = () => {
+  isStopped = true;
+  if (timer) {
+    clearInterval(timer);
+  }
+};
 
   // Function to reset Timer
-  const resetTimer = () => {
-    isStopped = true;
-    clearInterval(timer);
-    remainingTime = toHoursAndMinutes(180);
-    countContainer.innerHTML = remainingTime;
-  };
+const resetTimer = () => {
+  isStopped = true;
+  clearInterval(timer);
+  remainingTime = toHoursAndMinutes(180);
+  countContainer.innerHTML = remainingTime;
+};
 
 // Attach onclick event to buttons
 
@@ -73,12 +83,15 @@ const buttonSalatmix = document.getElementById('buttonSalatmix');
 const buttonTomato = document.getElementById('buttonTomato');
 const buttonCucumber = document.getElementById('buttonCucumber');
 
+/*
 buttonIceberg.addEventListener('click', function onClick(){
     changeColor(buttonIceberg);
+    startTimer();
 });
 
 buttonOnion.addEventListener('click', function onClick() {
     changeColor(buttonOnion);
+    countdownTimer(document.getElementById("timerOnion"), buttonCheese);
   });
 
 buttonCheese.addEventListener('click', function onClick() {
@@ -110,3 +123,4 @@ buttonPickles.addEventListener('click', function onClick(){
     changeColor(buttonPickles);
     countdownTimer(document.getElementById("timerPickles"), buttonPickles);
 });
+*/
