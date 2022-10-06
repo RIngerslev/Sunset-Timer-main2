@@ -10,14 +10,14 @@
 <body>
     <section>
         <header>
-            <a href="#"><img src="images/sunsetlogo1.svg" class="logo"></a>
-            <div class="toggle" onclick="toggleMenu()"></div>
+            <a href="hjem.html"><img src="images/sunsetlogo1.svg" class="logo"></a>
+            <div id="buttonMenu" class="btn not-active"><span></span><span></span><span></span></div>
+        </header>
+        <div class="content">
             <ul class="navigation">
                 <li><b href="hjem.html">HJEM</b></li>
                 <li><a href="kontakt.html">KONTAKT</a></li>
             </ul>
-        </header>
-        <div class="content">
             <div class="TimerBox">
                 <button onclick="startTimer(this)" type="button" class="button" id="buttonIceberg">Iceberg<br><br>00:00</button>
                 <button onclick="startTimer(this)" type="button" class="button" id="buttonOnion">Løg<br><br>00:00</button>
